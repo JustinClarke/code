@@ -1,37 +1,38 @@
-# import the following libraries 
-# will convert the image to text string 
-import pytesseract	 
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-# adds image processing capabilities 
-from PIL import Image	 
+def caesar(start_text, shift_amount, cipher_direction):
+  end_text = ""
+  if cipher_direction == "decode":
+    shift_amount *= -1
+  for char in start_text:
+    if char in alphabet:
+      position = alphabet.index(char)
+      new_position = position + shift_amount
+      end_text += alphabet[new_position]
+    else:
+      end_text += char
+    
+  print(f"Here's the {cipher_direction}d result: {end_text}")
 
-# converts the text to speech 
-import pyttsx3		 
+#TODO-1: Import and print the logo from art.py when the program starts.
 
-#translates into the mentioned language 
-from googletrans import Translator	 
+from art import logo
+print(logo)
+#TODO-4: Can you figure out a way to ask the user if they want to restart the cipher program?
+#e.g. Type 'yes' if you want to go again. Otherwise type 'no'.
+#If they type 'yes' then ask them for the direction/text/shift again and call the caesar() function again?
+#Hint: Try creating a while loop that continues to execute the program if the user types 'yes'. 
 
-# opening an image from the source path 
-img = Image.open('text1.png')	 
+should_continue = True
 
-# describes image format in the output 
-print(img)						 
-# path where the tesseract module is installed 
-pytesseract.pytesseract.tesseract_cmd ='C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
-# converts the image to result and saves it into result variable 
-result = pytesseract.image_to_string(img) 
-# write text in a text file and save it to source path 
-with open('abc.txt',mode ='w') as file:	 
-	
-				file.write(result) 
-				print(result) 
-				
-p = Translator()					 
-# translates the text into german language 
-k = p.translate(result,dest='german')	 
-print(k) 
-engine = pyttsx3.init() 
-
-# an audio will be played which speaks the test if pyttsx3 recognizes it 
-engine.say(k)							 
-engine.runAndWait() 
+while should_continue:
+  direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+  text = input("Type your message:\n").lower()
+  shift = int(input("Type the shift number:\n")) % 26
+  
+  caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+  
+  result = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+  if result == 'no':
+    should_continue = False
+    print("Goodbye")
