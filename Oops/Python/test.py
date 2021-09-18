@@ -1,11 +1,15 @@
-internDID = []
-internPassword = []
+# Write a program to submit electricity bill where-
 
-for a in range(0,49):
-  internDID[a] = a*5000
+# Provide user to with Meter Number and Identity card 
+# input fields and a submit button. On submission 
+# validate below criteria to save the record.
 
-def Day(day):
-  return (Day(day-1) + 5000 + day)
+# - Bill can only pay on Friday & Tuesday
 
+# - Payment can only accept after 2pm
 
-print(Day(1))
+# - Customers need to add their Meter Number 
+# and Identity card for verification.
+
+# - Show relevant messages on submission.
+
