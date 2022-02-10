@@ -1,0 +1,8 @@
+Computers of various sizes and capacities are omnipresent these days. 
+They are used for a diverse variety of tasks from medical imaging to gaming. 
+A majority of computing applications require the devices to communicate over a computer network.
+
+The first computer network was tested in the late 60s with a few computers. 
+Today, the world-wide network of computers (called the Internet) connects more than 5 billion users and has more than 1.5 billion websites!! 
+Multimedia applications make up a majority of the data sent over the Internet, with applications such as Youtube, Instagram etc. being favoured by young people. 
+Can you guess what the killer applications of the decade will be?
